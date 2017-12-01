@@ -1,0 +1,98 @@
+<!doctype html>
+<html >
+<head>
+  <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.3/angular.min.js"></script>
+<script src='./js/app.js'></script>
+<link rel="stylesheet" href="./css/custom.css"/>
+</head>
+<body>
+  <nav class="navbar navbar-inverse app-navbar">
+    <div class="container-fluid">
+     <!-- Brand and toggle get grouped for better mobile display -->
+     <div class="navbar-header">
+       <a class="navbar-brand" href="#">
+          <span style="font-size:28px"> <span style="color:rgba(140, 36, 36, 0.84)">I</span><span style="color:rgba(51, 51, 51, 0.66)">ncubatrix</span></span>
+      </a>
+      </div>
+        <ul class="nav navbar-nav navbar-right app-navbar">
+         <li><a href="/market" class="app-navbar-link">Go To Market</a></li>
+
+       </ul>
+  </nav>
+  <div class="container app-container-left">
+    <div class="app-block-content-center" style="color:rgba(51, 51, 51, 0.66)">
+      <p style="font-size:28px;" id="app-venture-name">Nike Inc.</p><hr>
+
+    <div>
+      <div class="row app-table-data">
+        <div class="col-lg-6 app-table-column-caption">
+          Registration Number
+        </div>
+        <div class="col-lg-6">
+          <p>ratul@gmail.com</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-6 app-table-column-caption">
+          Address
+        </div>
+        <div class="col-lg-6">
+          <p>Bangalore</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-6 app-table-column-caption">
+          Description
+        </div>
+        <div class="col-lg-6">
+          <p>1992-01-01</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div style="display:inline-block;width:100% !important">
+  <p style="font-size:28px;float:left" id="venture-ico-caption">
+
+      <span style="color:rgba(140, 36, 36, 0.84)">Y</span><span style="color:rgba(0, 0, 0, 0.79)">our <span style="color:rgba(140, 36, 36, 0.84)">V</span>entures </p>
+
+      <Button class="btn btn-primary" id="showAddIcoForm" style="float:right !important" onclick="AddICO()">Add new Venture</Button>
+    </div>
+      <div style="width:100%;display:inline-block"class="" id='venture-ico-list'>
+      <div style="float:left"><a href="#" class="thumbnail app-market-thumbnail-medium"></a>
+      </div><div style="float:left"><a href="#" class="thumbnail app-market-thumbnail-medium"></a></div>
+    </div>
+    <div id="addIcoForVenture" class="hidden" style="color:#797979;">
+      <form class="input-group" style="display:inline-block" ng-submit="addSME()">
+        <p style="line-height:2;">
+          I hereby wish to raise a sum of &#x20b9;
+          <input type="number" class="app-form-control-block" placeholder ="INR" >
+          at
+          <input type="number" placeholder = "Rate of Interest" class="app-form-control-block">
+          % rate of interest,to be paid over
+          <input type="number" class="app-form-control-block" placeholder="Tenure of loan">
+          months,in
+          <input type="number" class="app-form-control-block" placeholder="No.of installments">
+          installments, distributed among
+          <input type="number" class="app-form-control-block" placeholder="No.of bonds"> bonds.<br>
+          I hereby declare that I shall pay back the loan amount along with the interest to the investers at the end of the loan period,
+          failing which I shall be entitled to legal prosecution.</br>
+          <input type="radio" class="app-form-control.block"> I have read the Terms and Conditions of the service.</p>
+        <input type="submit" class="btn btn-primary app-form-control" value="Submit">
+      </form>
+    </div>
+  </div>
+  <script>
+      function AddICO(){
+        $('#addIcoForVenture').removeClass('hidden');
+      }
+  </script>
+</body>

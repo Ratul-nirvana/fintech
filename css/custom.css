@@ -1,0 +1,223 @@
+body{
+    font-family: 'Roboto', sans-serif;
+    /*font-size:30px;*/
+}
+.app-big-content-center{
+  margin-top : 200px;
+  display : inline-block
+}
+.app-form-control{
+  border-radius:0px !important;
+  margin : 5px;
+}
+.app-navbar{
+  background-color: transparent;
+  border-color : transparent;
+  border-radius : 0px;
+}
+.app-market-thumbnail{
+  height:350px;
+  width: 250px;
+  border-radius: 0px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+ transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+ margin : 5px;
+ text-decoration : none !important;
+}
+.app-market-thumbnail:hover{
+  border-color:transparent !important;
+  height:350px;
+  width: 250px;
+  border-radius: 0px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+ transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+ margin : 5px;
+}
+.app-container{
+  padding:20px;
+  /*background-color:rgba(199, 199, 199, 0.07);*/
+  background-color : rgba(210, 209, 209, 0.07);
+  text-align:center;
+  font-family: 'Roboto', sans-serif;
+}
+.app-container-left{
+  padding:20px;
+  /*background-color:rgba(199, 199, 199, 0.07);*/
+  background-color : rgba(210, 209, 209, 0.07);
+  text-align:left;
+  font-family: 'Roboto', sans-serif;
+}
+.app-placeholder-msg{
+  color:rgba(51, 51, 51, 0.66);
+}
+.bond-heading-caption{
+  font-size : 80px;
+}
+.app-block-content-center{
+  margin-top : 50px;
+  display : inline-block;
+}
+.app-form-control-block{
+  margin:5px;
+}
+.app-table-column-caption{
+  color: rgba(140, 36, 36, 0.84);
+
+}
+.app-table-data{
+  font-size:16px;
+}
+.app-market-thumbnail-medium{
+  height:250px;
+  width: 250px;
+  border-radius: 0px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+ transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+ margin : 5px;
+ text-decoration : none !important;
+}
+.app-market-thumbnail-medium:hover{
+  border-color:transparent !important;
+  height:250px;
+  width: 250px;
+  border-radius: 0px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+ transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+ margin : 5px;
+}
+.app-table-header{
+  padding-bottom:5px;
+  padding-top: 5px;
+  margin-left: inherit;
+  background-color:#e6e6e6;
+  width:100%
+}
+.app-table-body{
+  margin-left:inherit;
+  width:100%;
+  padding-top:5px;
+  padding-bottom:5px;
+  border-left-style:solid;
+  border-left-color:#e6e6e6;
+  border-left-width:1px;
+  border-right-style:solid;
+  border-right-color:#e6e6e6;
+  border-right-width:1px;
+}
+.app-table-body-last{
+  margin-left:inherit;
+  width:100%;
+  border-bottom-style:solid;
+  border-bottom-color:#e6e6e6;
+  border-bottom-width:1px;
+}
+.app-navbar-link{
+  color:rgba(78, 78, 78, 1) !important;
+  font-size : 16px;
+  font-weight:500;
+  border-style : solid;
+  border-color: rgb(192, 192, 192);
+  border-width:1px;
+  height:40px;
+  min-width : 80px;
+  padding-top : 10px !important;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+ transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+.app-navbar-link:hover{
+  border-color:transparent !important;
+  color:rgba(140, 36, 36, 0.84) !important;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+ transition: all 0.3s cubic-bezier(.25,.8,.25,1);ss
+}
+#ventureDetailsModal{
+  width : 100% !important;
+  height : 90vh !important;
+}
+
+
+
+
+
+
+
+
+
+/************************************External code ****************************/
+.carousel.carousel-fit {
+  position: relative;
+  /* When sliding, use the maximum height we have */
+  /* Center horizontally the content of the slides */
+  /* To be centered, the images of the slides need to be inline */
+  /* Maximize the captions in the wrapper */
+}
+.carousel.carousel-fit.slide {
+  /* Hide the content outside the carousel when sliding */
+  overflow: hidden;
+}
+.carousel.carousel-fit .carousel-inner > .next,
+.carousel.carousel-fit .carousel-inner > .prev {
+  bottom: 0;
+}
+.carousel.carousel-fit .carousel-inner > .item {
+  text-align: center;
+}
+.carousel.carousel-fit .carousel-inner > .item > img {
+  display: inline-block;
+}
+.carousel.carousel-fit .carousel-inner > .item > .carousel-caption {
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.modal.modal-fullscreen {
+  /* Maximize the main wrappers on the screen */
+  /* Make the parent wrapper of the modal box a full-width block */
+  /* Remove borders and effects on the content */
+  /**
+	 * /!\ By using this feature, you force the header and footer to be placed
+	 * in an absolute position. You must handle by yourself the margin of the
+	 * content.
+	 */
+}
+.modal.modal-fullscreen .modal-dialog,
+.modal.modal-fullscreen .modal-content {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.modal.modal-fullscreen .modal-dialog {
+  margin: 0;
+  width: 100%;
+}
+.modal.modal-fullscreen .modal-content {
+  border: none;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  -webkit-box-shadow: inherit;
+  -moz-box-shadow: inherit;
+  -o-box-shadow: inherit;
+  box-shadow: inherit;
+}
+.modal.modal-fullscreen.force-fullscreen {
+  /* Remove the padding inside the body */
+}
+.modal.modal-fullscreen.force-fullscreen .modal-body {
+  padding: 0;
+  position: relative;
+  top: 70px;
+}
+.modal.modal-fullscreen.force-fullscreen .modal-header,
+.modal.modal-fullscreen.force-fullscreen .modal-footer {
+  left: 0;
+  position: absolute;
+  right: 0;
+}
+.modal.modal-fullscreen.force-fullscreen .modal-header {
+  top: 0;
+}
+.modal.modal-fullscreen.force-fullscreen .modal-footer {
+  bottom: 0;
+}

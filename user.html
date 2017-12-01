@@ -1,0 +1,283 @@
+<!doctype html>
+<html >
+<head>
+  <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.3/angular.min.js"></script>
+<script src='./js/app.js'></script>
+<link rel="stylesheet" href="./css/custom.css"/>
+</head>
+<body ng-app="mainApp" ng-controller="userCtrl" ng-init="initializeUser()">
+  <nav class="navbar navbar-inverse app-navbar">
+    <div class="container-fluid">
+     <!-- Brand and toggle get grouped for better mobile display -->
+     <div class="navbar-header">
+       <a class="navbar-brand" href="#">
+          <span style="font-size:28px"> <span style="color:rgba(140, 36, 36, 0.84)">I</span><span style="color:rgba(51, 51, 51, 0.66)">ncubatrix</span></span>
+      </a>
+      </div>
+        <ul class="nav navbar-nav navbar-right app-navbar">
+         <li><a href="/market" class="app-navbar-link">Go To Market</a></li>
+
+       </ul>
+  </nav>
+   <div class="container app-container-left" >
+      <!--<h1>Register your venture here</h1>
+      <input type="text" placeholder ="Name" ng-model = "venture.name">
+      <input type="text" placeholder= "Registration number" ng-model="venture.regno">
+      <button ng-click="addSME()">Register</Button>-->
+        <div class="app-block-content-center" style="color:rgba(51, 51, 51, 0.66)">
+            <!--<p style="font-size:28px">
+              <span style="color:rgba(140, 36, 36, 0.84)">I</span><span style="color:rgba(0, 0, 0, 0.79)">nitial <span style="color:rgba(140, 36, 36, 0.84)">C</span>redit <span style="color:rgba(140, 36, 36, 0.84)">O</span>ffering</span></p>
+              <hr>-->
+          <p style="font-size:28px;" id="app-user-name">{{user.firstname+" "+user.lastname}}</p><hr>
+          <div>
+            <div class="row app-table-data">
+              <div class="col-lg-6 app-table-column-caption">
+                Email Id
+              </div>
+              <div class="col-lg-6">
+                <p>{{user.username}}</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-6 app-table-column-caption">
+                Address
+              </div>
+              <div class="col-lg-6">
+                <p>{{user.address}}</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-6 app-table-column-caption">
+                Date of Birth:
+              </div>
+              <div class="col-lg-6">
+                <p>{{user.dob}}</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <hr>
+        <div class="">
+          <div style="display:inline-block;width:100% !important">
+          <p style="font-size:28px;float:left" id="user-ventures-section-caption">
+
+              <span style="color:rgba(140, 36, 36, 0.84)">Y</span><span style="color:rgba(0, 0, 0, 0.79)">our <span style="color:rgba(140, 36, 36, 0.84)">V</span>entures </p>
+
+              <Button class="btn btn-primary" id="showAddVentureForm" style="float:right !important" onclick="AddVenture()">Add new Venture</Button>
+            </div>
+
+            <div style="width:100%;display:inline-block"class="" id='userVentureList'>
+            <div style="float:left" ng-repeat="venture in user.ventures">
+              <a href="" class="thumbnail app-market-thumbnail-medium" data-toggle="modal" data-target="#ventureDetailsModal" ng-click="populateVentureModal(venture.id)">
+                  <h2>{{venture.name}}</h2>
+                  <p class="btn btn-success"> Credit point <span class="badge"> {{venture.credit}}</span></p>
+
+              </a>
+            </div>
+
+          </div>
+          <div id="addVentureforUserForm" class="hidden">
+            <form class="input-group" ng-submit="user.signup()">
+            <input type="email" class="form-control app-form-control" placeholder="Name" ng-model="user.username">
+            <input type="text" class="form-control app-form-control" placeholder="Address" ng-model="user.firstname">
+            <input type="text" class="form-control app-form-control" placeholder="Registration Number" ng-model="user.last_name">
+            <input type="text" class="form-control app-form-control" placeholder="Description of the venture" ng-model="user.dob">
+
+            <input type='submit' class="btn btn-primary app-form-control" value="Add Venture">
+            </form>
+          </div>
+            <hr>
+        </div>
+        <div class="">
+          <p style="font-size:28px">
+            <span style="color:rgba(140, 36, 36, 0.84)">Y</span><span style="color:rgba(0, 0, 0, 0.79)">our <span style="color:rgba(140, 36, 36, 0.84)">I</span>nvestments </p>
+
+
+            <div style="width:100%;display:inline-block">
+                <div class="row app-table-header">
+                  <div class="col-lg-2">ICO</div>
+                  <div class="col-lg-2">Venture</div>
+                  <div class="col-lg-2">Amount</div>
+                  <div class="col-lg-2">Rate</div>
+                  <div class="col-lg-2">Ends on</div>
+                  <div class="col-lg-2">Remaining</div>
+                </div>
+
+                <div class="row app-table-body" ng-repeat="bond in user.bonds">
+                  <div class="col-lg-2">{{bond.bondid}}</div>
+                  <div class="col-lg-2"></div>
+                  <div class="col-lg-2">{{bond.amount}}</div>
+                  <div class="col-lg-2">{{bond.rate}}</div>
+                  <div class="col-lg-2"></div>
+                  <div class="col-lg-2">{{bond.installment}}</div>
+                </div>
+                <div class="row app-table-body-last" >
+                  <div class="col-lg-2"></div>
+                  <div class="col-lg-2"></div>
+                  <div class="col-lg-2"></div>
+                  <div class="col-lg-2"></div>
+                  <div class="col-lg-2"></div>
+                  <div class="col-lg-2"></div>
+                </div>
+
+          </div>
+            <hr>
+
+        </div>
+        <!--          -------  Venture details modal --------------------- -->
+        <div class="modal fade modal-fullscreen force-fullscreen" id="ventureDetailsModal" tabindex="-1" role="dialog" aria-labelledby="ventureDetailsModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <p style="font-size:28px;float:left" class="modal-title" id="ventureDetailsModalLabel">
+                  <span style="color:rgba(140, 36, 36, 0.84)">{{ventureDetails.vname}}</span>
+                </p>
+                <button class="btn btn-primary"style="margin-left:20px;" onclick="newICOSection()" id='newICOBtn'>New Fund Raising</Button>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div id="venture-generic-details-section">
+                  <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                      <a class="nav-link active" href="#" onclick="switchToVentureDetailsView()">Details</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#" onclick="switchToPaymentsDetailsView()">Payments</a>
+                    </li>
+
+                    </ul>
+                    <div id="venture-details-section" style="padding:20px;">
+                        <div class="row">
+                          <div class="col-lg-2">Registration Number</div>
+                          <div class="col-lg-10">
+                            <input type="text" class="form-control" value="{{ventureDetails.regid}}"></input>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-lg-2">Address</div>
+                          <div class="col-lg-10">
+                            <input type="text" class="form-control"></input>
+                          </div>
+                        </div>
+
+                    </div>
+                    <div id="venture-payment-details-section" class='hidden'>
+                      <div style="width:100%;display:inline-block">
+                          <div class="row app-table-header">
+                            <div class="col-lg-2">ICO</div>
+                            <div class="col-lg-2">Venture</div>
+                            <div class="col-lg-2">Amount</div>
+                            <div class="col-lg-2">Rate</div>
+                            <div class="col-lg-2">Ends on</div>
+                            <div class="col-lg-2">Remaining</div>
+                          </div>
+
+                          <div class="row app-table-body" ng-repeat="bond in user.bonds">
+                            <div class="col-lg-2">{{bond.bondid}}</div>
+                            <div class="col-lg-2"></div>
+                            <div class="col-lg-2">{{bond.amount}}</div>
+                            <div class="col-lg-2">{{bond.rate}}</div>
+                            <div class="col-lg-2"></div>
+                            <div class="col-lg-2">{{bond.installment}}</div>
+                          </div>
+                          <div class="row app-table-body-last" >
+                            <div class="col-lg-2"></div>
+                            <div class="col-lg-2"></div>
+                            <div class="col-lg-2"></div>
+                            <div class="col-lg-2"></div>
+                            <div class="col-lg-2"></div>
+                            <div class="col-lg-2"></div>
+                          </div>
+
+                    </div>
+                    </div>
+
+                </div>
+                <div id="venture-new-ico-section" class="hidden">
+
+                  <div class="app-block-content-center" style="padding-left:10px;">
+                      <p style="font-size:28px">
+                        <span style="color:rgba(140, 36, 36, 0.84)">I</span><span style="color:rgba(0, 0, 0, 0.79)">nitial <span style="color:rgba(140, 36, 36, 0.84)">C</span>redit <span style="color:rgba(140, 36, 36, 0.84)">O</span>ffering</span></p>
+                        <hr>
+                    <form class="input-group" style="display:inline-block" ng-submit="addICO()">
+                      <p style="line-height:2;">
+                        I hereby wish to raise a sum of &#x20b9;
+                        <input type="number" class="app-form-control-block" placeholder ="INR" ng-model='newico.amount'>
+                        at
+                        <input type="number" placeholder = "Rate of Interest" class="app-form-control-block" ng-model='newico.rate'>
+                        % rate of interest,to be paid over
+                        <input type="number" class="app-form-control-block" placeholder="Tenure of loan" ng-model='newico.tenure'>
+                        months,in
+                        <input type="number" class="app-form-control-block" placeholder="No.of installments" ng-model= 'newico.installments'>
+                        installments, distributed among
+                        <input type="number" class="app-form-control-block" placeholder="No.of bonds" ng-model='newico.bondno'> bonds.<br>
+                        I hereby declare that I shall pay back the loan amount along with the interest to the investers at the end of the loan period,
+                        failing which I shall be entitled to legal prosecution.</br>
+                        <input type="radio" class="app-form-control.block"> I have read the Terms and Conditions of the service.</p>
+                        <input type="submit" class="btn btn-primary app-form-control" value="Submit">
+                        <Button class="btn btn-danger app-form-control" onClick="cancleICOSection()">Cancel</Button>
+                    </form>
+                  </div>
+
+                </div>
+
+
+              </div>
+            <!--  <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+              </div>-->
+            </div>
+          </div>
+        </div>
+
+
+        <!-- ------------------- Venture details modal ends -------------- -->
+
+  </div>
+  <script>
+  function AddVenture(){
+    console.log('Showing add venture form');
+    $('#addVentureforUserForm').removeClass('hidden');
+    $('#userVentureList').addClass('hidden');
+    $('#showAddVentureForm').addClass('hidden');
+    $('#user-ventures-section-caption').html('<span style="color:rgba(140, 36, 36, 0.84)">A</span><span style="color:rgba(0, 0, 0, 0.79)">dd <span style="color:rgba(140, 36, 36, 0.84)">V</span>enture</p>');
+  };
+  function switchToVentureDetailsView(){
+    console.log('switch');
+      if($('#venture-details-section').hasClass('hidden')){
+        $('#venture-details-section').removeClass('hidden');
+        $('#venture-payment-details-section').addClass('hidden');
+      }
+  }
+  function switchToPaymentsDetailsView(){
+    console.log('switch');
+    if($('#venture-payment-details-section').hasClass('hidden')){
+      $('#venture-payment-details-section').removeClass('hidden');
+      $('#venture-details-section').addClass('hidden');
+    }
+  }
+  function newICOSection(){
+      $('#venture-new-ico-section').removeClass('hidden');
+      $('#newICOBtn').addClass('hidden');
+      $('#venture-generic-details-section').addClass('hidden');
+  }
+  function cancleICOSection(){
+    $('#venture-new-ico-section').addClass('hidden');
+    $('#newICOBtn').removeClass('hidden');
+    $('#venture-generic-details-section').removeClass('hidden');
+  }
+  </script>
+</body>
+</html>
